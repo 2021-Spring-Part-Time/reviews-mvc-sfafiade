@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Review</title>
+</head>
+<style>
+		<style>
+		{
+    font-family: sans-serif;
+    line-height: 1.618em;
+    box-sizing: border-box ;
+    margin: 0;
+    padding: 0;
+
+}
+body {
+    background-image: url("images/FanArt.jpg");
+    background-repeat: repeat;
+    background-size: 100%;
+        }
+
+img {
+    width: 250px;
+    center: 200px;
+  }
+ article{
+     border: chocolate;
+ }
+
+html{
+    font-size: 16px;
+
+    margin-top: 3em;
+}
+
+
+h1, h2, h2, h4 {
+color: blue;
+}
+
+
+
+header,
+main,
+footer{
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+
+header {
+    padding: 2em 0;
+}
+
+header h1{
+    font-size: 3em;
+}
+
+header span{
+    font-size: 1.5;
+    color: black;
+}
+
+
+
+nav a {
+    padding: .5em 2em;
+    text-decoration: blue;
+    color: black;
+    margin: 2em;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    padding: 2px;
+
+}
+
+nav a:hover {
+    background: blue;
+    transition: 0.5s;
+
+}
+
+
+
+article section {
+    margin: 1em 0;
+
+    padding-top: 3em;
+    min-height: 20em;
+}
+
+section > p {
+    margin:  1em 0;
+}
+
+article{
+
+}
+
+
+footer {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    background-color: #666;
+    color: #fff;
+    padding: 1em;
+}
+
+
+	</style>
+
+<body>
+
+<header th:each="review: ${reviews}">
+  <h1 th:text="${review.title}"></h1>
+</header>
+
+<article th:each="review: ${reviews}">
+  <img th:src="${review.imageURL}" />
+  <h2>Content</h2>
+  <p th:text="${review.content}"></p>
+  <h2>Category</h2>
+  <p th:text="${review.category}"></p>
+    <h2>Description</h2>
+    <p th:text="${review.description}"/>
+  <a href="http://localhost:8080/reviews">Back to home</a>
+</article>
+
+</body>
+</html>
